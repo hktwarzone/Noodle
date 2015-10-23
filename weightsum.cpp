@@ -52,26 +52,25 @@ public:
 };
 
 int main() {
-	// your code goes here
-	/*
-	test1
-	Node n1(1);
-	Node n2(1);
-	Node n3(2);
-	Node n4(1);
-	Node n5(1);
-	vector<Node> p1 = {n1, n2};
-	vector<Node> p2 = {n4, n5};
-	vector<Node> lis = {p1, n3, p2};
-	*/
-	
-	Node n1(1);
-	Node n2(4);
-	Node n3(6);
-	vector<Node> p3 = {n3};
-	vector<Node> p2 = {n2, p3};
-	vector<Node> lis = {n1, p2};
-	Solution s;
-	cout << s.WeightSum(lis, s.Depth(lis)) << endl;
-	return 0;
+    /*
+    test1
+    Node n1(1);
+    Node n2(1);
+    Node n3(2);
+    Node n4(1);
+    Node n5(1);
+    vector<Node> p1 = {n1, n2};
+    vector<Node> p2 = {n4, n5};
+    vector<Node> lis = {p1, n3, p2};
+    */
+
+    Node n1(1);
+    Node n2(4);
+    Node n3(6);
+    vector<Node> p3 = {n3};
+    vector<Node> p2 = {n2, p3};
+    vector<Node> lis = {n1, p2};
+    Solution s;
+    cout << s.WeightSum(lis, s.Depth(lis)) << endl;
+    return 0;
 }
