@@ -49,6 +49,30 @@ public:
         }
         return res + 1;
     }
+    
+    int WeightSumReverse(vector<Node>& lis) {
+        int totalsum = 0;
+        int positivesum = 0;
+        int depth = 0;
+        int maxDepth = 0;
+        WSRHelper(lis, totalsum, positivesum, depth, maxDepth);
+        return (maxDepth + 1) * totalsum - positivesum;
+    }
+    
+    void WSRHelper(vector<Node>& lis, int& tsum, int& psum, int depth, int& maxDepth) {
+        if (lis.empty()) return;
+        depth++;
+        maxDepth = max(maxDepth, depth);
+        for (auto it = lis.begin(); it != lis.end(); it++) {
+            if(it->children.empty()) {
+                tsum += it->value;
+                psum += it->value * depth;
+            }
+            else {
+                WSRHelper(it->children, tsum, psum, depth, maxDepth);
+            }
+        }
+    }
 };
 
 int main() {
@@ -71,6 +95,6 @@ int main() {
     vector<Node> p2 = {n2, p3};
     vector<Node> lis = {n1, p2};
     Solution s;
-    cout << s.WeightSum(lis, s.Depth(lis)) << endl;
+    cout << s.WeightSumReverse(lis) << endl;
     return 0;
 }
