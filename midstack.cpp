@@ -54,7 +54,30 @@ public:
         return res;
     }
     int findMiddle() {
-        return mid->val;
+        if (mid != NULL) return mid->val;
+        else return -1;
+    }
+    void deleteMiddle() {
+        if (size == 1) {
+            pop();
+        }
+        else {
+            Node* delNode = mid;
+            if (mid->next) {
+                mid->next->prev = mid->prev;
+            }
+            if (mid->prev) {
+                mid->prev->next = mid->next;
+            }
+            if (size & 1) {
+                mid = mid->next;
+            }
+            else {
+                mid = mid->prev;
+            }
+            size--;
+            delete delNode;
+        }
     }
 private:
     Node* head;
@@ -76,5 +99,17 @@ int main() {
     cout << "Item popped is " << st.pop() << endl;
     cout << "Item popped is " << st.pop() << endl;
     cout << "Middle Element is " << st.findMiddle() << endl;
-	return 0;
+    st.deleteMiddle();
+    cout << "Middle Element is " << st.findMiddle() << endl;
+    st.deleteMiddle();
+    cout << "Middle Element is " << st.findMiddle() << endl;
+    st.deleteMiddle();
+    cout << "Middle Element is " << st.findMiddle() << endl;
+    st.deleteMiddle();
+    cout << "Middle Element is " << st.findMiddle() << endl;
+    st.deleteMiddle();
+    cout << "Middle Element is " << st.findMiddle() << endl;
+    st.deleteMiddle();
+    cout << "Middle Element is " << st.findMiddle() << endl;
+    return 0;
 }
