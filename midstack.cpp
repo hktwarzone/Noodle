@@ -1,3 +1,6 @@
+/*
+http://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/
+*/
 #include <iostream>
 using namespace std;
 
