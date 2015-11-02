@@ -1,4 +1,17 @@
-/* Command stream dumpout
+/* Schedule stream dumpout
+start(taskid, starttime)
+end(taskid, endtime)
+For example:
+start(5, 8)
+start(0, 10)
+start(2, 13)
+start(1, 14)
+end(0, 20)
+start(7, 30)
+end(2, 40)
+end(7, 60)
+end(5, 90) => dumpout task 5, 0, 2
+end(1, 100) => dumpout task 1, 7
 */
 
 #include <iostream>
