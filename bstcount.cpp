@@ -43,22 +43,24 @@ public:
     int query(int rank) {
         return queryHelper(root, rank);
     }
-    TreeNode* leftRotate(TreeNode* z) {
+    TreeNode* rightRotate(TreeNode* z) {
         if (!z) return z;
         TreeNode* y = z->left;
         if (!y) return z;
         TreeNode* x = y->right;
         y->right = z;
         z->left = x;
+        y->count += (1 + z->count);
         return y;
     }
-    TreeNode* rightRotate(TreeNode* z) {
+    TreeNode* leftRotate(TreeNode* z) {
         if (!z) return z;
         TreeNode* y = z->right;
         if (!y) return z;
         TreeNode* x = y->left;
         y->left = z;
         z->right = x;
+        z->count -= (1 + y->count);
         return y;
     }
 private:
@@ -84,13 +86,17 @@ private:
 int main() {
 	// your code goes here
 	Tree t;
-	t.insert(6);
-	t.insert(3);
 	t.insert(10);
-	t.insert(7);
-	t.insert(4);
+	t.insert(9);
 	t.insert(8);
+	t.insert(7);
+	t.insert(6);
 	t.insert(5);
+	t.insert(4);
+	for (int i = 0; i < t.size; i++) {
+	    cout << "t.query(" << i + 1 << ") = " << t.query(i + 1) << endl;
+	}
+	t.root = t.rightRotate(t.root);
 	for (int i = 0; i < t.size; i++) {
 	    cout << "t.query(" << i + 1 << ") = " << t.query(i + 1) << endl;
 	}
