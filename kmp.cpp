@@ -1,3 +1,9 @@
+/*
+Time complexity: O(m + n)
+failure function: O(n)
+when matching, each of m characters needs to be pushed into the sliding window and then poped out from it => O(m)
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>
