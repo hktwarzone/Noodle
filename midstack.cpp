@@ -86,15 +86,15 @@ private:
 };
 
 int main() {
-	// your code goes here
-	MidStack st;
-	st.push(11);
-	st.push(22);
-	st.push(33);
-	st.push(44);
-	st.push(55);
-	st.push(66);
-	st.push(77);
+    // your code goes here
+    MidStack st;
+    st.push(11);
+    st.push(22);
+    st.push(33);
+    st.push(44);
+    st.push(55);
+    st.push(66);
+    st.push(77);
 
     cout << "Item popped is " << st.pop() << endl;
     cout << "Item popped is " << st.pop() << endl;
