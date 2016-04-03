@@ -45,11 +45,11 @@ private:
 
 
 int main() {
-	// your code goes here
-	NestedIterator it {{ 1 }, 2, { 3, {4, 5}, { 6, 7, { 8 }}}};
+    // your code goes here
+    NestedIterator it {{ 1 }, 2, { 3, {4, 5}, { 6, 7, { 8 }}}};
     while (it.hasNext()) {
         cout << it.next() << " ";
     }
     cout << endl;
-	return 0;
+    return 0;
 }
