@@ -8,56 +8,39 @@ public:
     TreeNode* left;
     TreeNode* right;
     TreeNode* parent;
-    TreeNode(int v): value(v) {
-        left = NULL;
-        right = NULL;
-        parent = NULL;
-    }
+    TreeNode(int v): value(v) { left = NULL; right = NULL; parent = NULL; }
 };
 
 class BSTIterator {
 public:
-    TreeNode* curr;
-    BSTIterator(TreeNode* start) {
-        if (!start) return;
-        curr = start;
-    }
+    TreeNode* ptr;
+    BSTIterator(TreeNode* p): ptr(p) {}
     BSTIterator& operator++(int) {
-        if (!curr) return *this;
-        if (curr->right) {
-            TreeNode* next = curr->right;
+        if (ptr && ptr->right) {
+            TreeNode* next = ptr->right;
             while(next->left) { next = next->left; }
-            curr = next;
+            ptr = next;
         }
-        else {
-            TreeNode* child = curr;
-            TreeNode* next = curr->parent;
+        else if (ptr) {
+            TreeNode* child = ptr;
+            TreeNode* next = ptr->parent;
             while(next && next->right == child) {
                 child = next;
                 next = next->parent;
             }
-            curr = next;
+            ptr = next;
         }
         return *this;
     }
-    int& operator*() {
-        return curr->value;
-    }
-    bool operator==(const BSTIterator& right) const {
-        return curr == right.curr;
-    }
-    BSTIterator& operator=(const BSTIterator& right) {
-        curr = right.curr;
-        return *this;
-    }
+    int& operator*() { return ptr->value; }
+    bool operator==(const BSTIterator& right) const { return ptr == right.ptr; }
+    bool operator!=(const BSTIterator& right) const { return ptr != right.ptr; }
 };
 
 class Tree {
 public:
     TreeNode* root;
-    Tree() {
-        root = NULL;
-    }
+    Tree() { root = NULL; }
     void addNode(int v) {
         if (!root) {
             root = new TreeNode(v);
@@ -66,13 +49,12 @@ public:
         TreeNode* curr = root;
         TreeNode* prev = NULL;
         while(curr) {
+            prev = curr;
             if (curr->value == v) return;
             else if (curr->value < v) {
-                prev = curr;
                 curr = curr->right;
             }
             else {
-                prev = curr;
                 curr = curr->left;
             }
         }
@@ -86,14 +68,13 @@ public:
         }
     }
     BSTIterator begin() {
+        if (!root) return BSTIterator(NULL);
         TreeNode* curr = root;
         while(curr->left) { curr = curr->left; }
         return BSTIterator(curr);
     }
     BSTIterator end() {
-        TreeNode* curr = root;
-        while(curr->right) { curr = curr->right; }
-        return BSTIterator(curr);
+        return BSTIterator(NULL);
     }
 };
 
@@ -105,12 +86,8 @@ int main() {
 	BSTtree.addNode(24);
 	BSTtree.addNode(48);
 	BSTtree.addNode(56);
-	BSTIterator it = BSTtree.begin();
-	while (1) {
-	    if (it == BSTtree.end()) break;
+	for (BSTIterator it = BSTtree.begin(); it != BSTtree.end(); it++) {
     	cout << *it << endl;
-	    it++;
 	}
-	cout << *it << endl;
 	return 0;
 }
