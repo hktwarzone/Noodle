@@ -88,6 +88,6 @@ int main() {
 	BSTtree.addNode(56);
 	for (BSTIterator it = BSTtree.begin(); it != BSTtree.end(); it++) {
     	cout << *it << endl;
-	}
+    }
 	return 0;
 }
