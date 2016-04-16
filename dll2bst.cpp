@@ -54,7 +54,7 @@ void pushList(TreeNode*& head, int v) {
 int main() {
     // your code goes here
     TreeNode* head = NULL;
-	pushList(head, 7);
+    pushList(head, 7);
     pushList(head, 6);
     pushList(head, 5);
     pushList(head, 4);
