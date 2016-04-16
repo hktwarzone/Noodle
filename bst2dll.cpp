@@ -1,3 +1,5 @@
+// Binary Search Tree conversion to Doubly Linked List
+// Note: maintain a global TreeNode* (prev) to track last "ListNode"
 #include <iostream>
 using namespace std;
 
@@ -37,8 +39,8 @@ void printLL(TreeNode* head) {
 
 
 int main() {
-	// your code goes here
-	TreeNode *root    = new TreeNode(10);
+    // your code goes here
+    TreeNode *root    = new TreeNode(10);
     root->left        = new TreeNode(12);
     root->right       = new TreeNode(15);
     root->left->left  = new TreeNode(25);
@@ -48,5 +50,5 @@ int main() {
     TreeNode* prev = NULL;
     bst2dll(root, head, prev);
     printLL(head);
-	return 0;
+    return 0;
 }
