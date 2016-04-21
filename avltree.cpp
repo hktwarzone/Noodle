@@ -1,5 +1,4 @@
 //http://www.geeksforgeeks.org/avl-tree-set-1-insertion/
-
 #include <iostream>
 using namespace std;
 
@@ -28,9 +27,8 @@ public:
     int balance(TreeNode* root) {
         return (root) ? height(root->left) - height(root->right) : 0;
     }
-    TreeNode* rotateLeft(TreeNode* root) {
+    TreeNode* rotateRight(TreeNode* root) {
         TreeNode* child = root->left;
-        if (!child) return root;
         TreeNode* gchild = child->right;
         child->right = root;
         root->left = gchild;
@@ -38,9 +36,8 @@ public:
         child->height = max(height(child->left), height(child->right)) + 1;
         return child;
     }
-    TreeNode* rotateRight(TreeNode* root) {
+    TreeNode* rotateLeft(TreeNode* root) {
         TreeNode* child = root->right;
-        if (!child) return root;
         TreeNode* gchild = child->left;
         child->left = root;
         root->right = gchild;
@@ -60,25 +57,6 @@ public:
         }
         root->height = max(height(root->left), height(root->right)) + 1;
         
-        int bal = balance(root);
-        if (bal > 1 && v < root->left->value)
-            return rotateRight(root);
- 
-        if (bal < -1 && v > root->right->value)
-            return rotateLeft(root);
- 
-        if (bal > 1 && v > root->left->value)
-        {
-            root->left =  rotateLeft(root->left);
-            return rotateRight(root);
-        }
-
-        if (bal < -1 && v < root->right->value)
-        {
-            root->right = rotateRight(root->right);
-            return rotateLeft(root);
-        }
-/*
         if (balance(root) > 1) {
             if (v > root->left->value) {
                 root->left = rotateLeft(root->left);
@@ -91,7 +69,6 @@ public:
             }
             return rotateLeft(root);
         }
-*/
         return root;
     }
     void addNode(int v) {
@@ -110,14 +87,13 @@ void preOrder(TreeNode* root)
 }
 
 int main() {
-	// your code goes here
-	AVLTree t;
-	t.addNode(10);
-	t.addNode(20);
-	t.addNode(30);
-	t.addNode(40);
-	t.addNode(50);
-	t.addNode(25);
+    AVLTree t;
+    t.addNode(10);
+    t.addNode(20);
+    t.addNode(30);
+    t.addNode(40);
+    t.addNode(50);
+    t.addNode(25);
  
   /* The constructed AVL Tree would be
             30
@@ -127,7 +103,7 @@ int main() {
        10  25    50
   */
  
-  cout << "Pre order traversal of the constructed AVL tree is " << endl;
-  preOrder(t.root);
-  return 0;
+    cout << "Pre order traversal of the constructed AVL tree is " << endl;
+    preOrder(t.root);
+    return 0;
 }
