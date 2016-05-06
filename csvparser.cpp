@@ -45,20 +45,20 @@ string encodeCSV(vector<string> v) {
 }
 
 int main() {
-	// your code goes here
-	string csv1 = "John,Smith,john.smith@gmail.com,Los Angeles,1";
+    // your code goes here
+    string csv1 = "John,Smith,john.smith@gmail.com,Los Angeles,1";
     string csv2 = "Jane,Roberts,janer@msn.com,\"San Francisco, CA\",0";
     string csv3 = "\"Alexandra \"\"Alex\"\"\",Menendez,alex.menendez@gmail.com,Miami,1";
     string csv4 = "\"\"\"Alexandra Alex\"\"\"";
     string csv5 = "a,b,c,d";
     string csv6 = "\"abc\",a,b";
     string csv7 = "\"abc \"\"d\"\"\",a,b";
-	cout << encodeCSV(decodeCSV(csv1)) << endl;
-	cout << encodeCSV(decodeCSV(csv2)) << endl;
-	cout << encodeCSV(decodeCSV(csv3)) << endl;
-	cout << encodeCSV(decodeCSV(csv4)) << endl;
-	cout << encodeCSV(decodeCSV(csv5)) << endl;
-	cout << encodeCSV(decodeCSV(csv6)) << endl;
-	cout << encodeCSV(decodeCSV(csv7)) << endl;
-	return 0;
+    cout << encodeCSV(decodeCSV(csv1)) << endl;
+    cout << encodeCSV(decodeCSV(csv2)) << endl;
+    cout << encodeCSV(decodeCSV(csv3)) << endl;
+    cout << encodeCSV(decodeCSV(csv4)) << endl;
+    cout << encodeCSV(decodeCSV(csv5)) << endl;
+    cout << encodeCSV(decodeCSV(csv6)) << endl;
+    cout << encodeCSV(decodeCSV(csv7)) << endl;
+    return 0;
 }
