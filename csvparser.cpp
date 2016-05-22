@@ -47,11 +47,16 @@ string encodeCSV(vector<string> v) {
 int main() {
     // your code goes here
     string csv1 = "John,Smith,john.smith@gmail.com,Los Angeles,1";
+    // Jane,Roberts,janer@msn.com,"San Francisco, CA",0
     string csv2 = "Jane,Roberts,janer@msn.com,\"San Francisco, CA\",0";
+    // "Alexandra ""Alex""",Menendez,alex.menendez@gmail.com,Miami,1
     string csv3 = "\"Alexandra \"\"Alex\"\"\",Menendez,alex.menendez@gmail.com,Miami,1";
+    // """Alexandra Alex"""
     string csv4 = "\"\"\"Alexandra Alex\"\"\"";
     string csv5 = "a,b,c,d";
+    // "abc",a,b
     string csv6 = "\"abc\",a,b";
+    // abc ""d""",a,b"
     string csv7 = "\"abc \"\"d\"\"\",a,b";
     cout << encodeCSV(decodeCSV(csv1)) << endl;
     cout << encodeCSV(decodeCSV(csv2)) << endl;
