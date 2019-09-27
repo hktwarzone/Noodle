@@ -67,8 +67,8 @@ int main()
     Solution s;
     s.parse(input);
     vector<string> q1 = {"key"};
-	  vector<string> q2 = {"subkey","time"};
-	  vector<string> q3 = {"subkey","subsub","abc"};
+    vector<string> q2 = {"subkey","time"};
+    vector<string> q3 = {"subkey","subsub","abc"};
     cout << s.query(q1) << endl;
     cout << s.query(q2) << endl;
     cout << s.query(q3) << endl;
